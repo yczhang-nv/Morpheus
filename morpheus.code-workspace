@@ -28,6 +28,33 @@
         "compounds": [],
         "configurations": [
             {
+                "name": "pytest test_multi_processing_stage",
+                "type": "debugpy",
+                "request": "launch",
+                "module": "pytest",
+                "args": [
+                    "-s",
+                    "--run_slow",
+                    "${workspaceFolder}/tests/test_multi_processing_stage.py::test_create_stage_type_deduction"
+                ],
+                "console": "integratedTerminal",
+                "justMyCode": true
+            },
+            {
+                "name": "pytest test_shared_process_pool",
+                "type": "debugpy",
+                "request": "launch",
+                "module": "pytest",
+                "args": [
+                    "-s",
+                    "--run_slow",
+                    "${workspaceFolder}/tests/test_multi_processing_stage.py::test_create_stage_type_deduction",
+                    "${workspaceFolder}/tests/utils/test_shared_process_pool.py::test_pool_status"
+                ],
+                "console": "integratedTerminal",
+                "justMyCode": true
+            },
+            {
                 "args": [
                     "--log_level=DEBUG",
                     // "--debug",
@@ -307,7 +334,7 @@
             {
                 "MIMode": "gdb",
                 "args": [
-                    "./python/morpheus/morpheus/cli.py",
+                    "${workspaceFolder}/python/morpheus/morpheus/cli/run.py",
                     "--log_level=DEBUG",
                     "run",
                     "--num_threads=2",
@@ -374,7 +401,7 @@
                 "externalConsole": false,
                 "miDebuggerPath": "gdb",
                 "name": "Debug MRC from Python (Morpheus-NLP)",
-                "program": "python",
+                "program": "/home/yuchenz/miniforge3/envs/morpheus/bin/python",
                 "request": "launch",
                 "setupCommands": [
                     {
@@ -483,6 +510,10 @@
                 "sourceFileMap": {
                     "${workspaceFolder}": {
                         "editorPath": "${workspaceFolder}",
+                        "useForBreakpoints": "true"
+                    },
+                    "/home/yuchenz/Work/Projects/MRC": {
+                        "editorPath": "${workspaceFolder}/../MRC",
                         "useForBreakpoints": "true"
                     }
                 },
